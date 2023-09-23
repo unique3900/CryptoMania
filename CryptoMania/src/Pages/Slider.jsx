@@ -26,8 +26,10 @@ const Slider = () => {
 
     const items = coins.map((coin) => {
         return (
-            <Link className='h-40 w-40 flex flex-row gap-2' to={`/coins/${coin.id}`}>
+            <Link className='h-40 w-40 flex flex-col gap-2 justify-center items-center' to={`/coins/${coin.id}`}>
                 <img className='w-14 h-14' src={coin.image} alt={coin.id} />
+                <p className="text-sm text-white font-bold capitalize">{coin.symbol }</p>
+                <p className="text-sm text-white font-bold capitalize">{ currency}-{coin.current_price }</p>
             </Link>
         )
     })
@@ -41,7 +43,7 @@ const Slider = () => {
         }
     }
   return (
-    <div className='w-[100%]'>
+    <div className=' w-[700px] overflow-hidden'>
           <AliceCarousel
               infinite
               autoPlay={true}

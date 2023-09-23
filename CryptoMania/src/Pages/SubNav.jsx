@@ -20,7 +20,7 @@ const SubNav = () => {
     } = useContext(Currency);
 
     return (
-        <div className='flex justify-end p-3'>
+        <div className='flex justify-end px-8 py-3'>
             <div className="flex flex-row gap-2 items-center">
                 <p className="text-lg font-bold text-yellow-500">Currency</p>
                 <select onChange={(e) => {
