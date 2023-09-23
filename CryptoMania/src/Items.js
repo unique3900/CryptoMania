@@ -1,19 +1,29 @@
 export const navitem = [
     {
         id: 1,
-        title:"Home"
+        title:"home"
     },
     {
         id: 2,
-        title:"Coins"
+        title:"coins"
     },
     {
         id: 3,
-        title:"White Paper"
+        title:"launch"
     },
     {
         id: 4,
-        title:"About Us"
+        title:"About"
     },
 
 ]
+export const currency = [{
+    value: 'usd',
+    label: 'USD'
+}, {
+    value: 'npr',
+    label: 'NPR'
+}, {
+    value: 'cad',
+    label: 'CAD'
+}];

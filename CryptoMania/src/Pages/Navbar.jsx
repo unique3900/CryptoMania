@@ -1,7 +1,9 @@
 import React, {
+    useContext,
     useState
 } from 'react'
 import {
+    currency,
     navitem
 } from '../Items'
 import {
@@ -10,15 +12,24 @@ import {
 import {
     GiHamburgerMenu
 } from 'react-icons/gi';
-import { AiOutlineClose } from 'react-icons/ai';
+import {
+    AiOutlineClose
+} from 'react-icons/ai';
+import { Currency } from '../Global/Context';
+
 const Navbar = () => {
     const [navState, setNavState] = useState(false);
+    const { currency, setCurrency } = useContext(Currency);
     return (
-        <div className='relative flex flex-row justify-between gap-10 px-5 py-3 place-items-center'>
-            <Link to={'/'}
-                className='text-yellow-500 font-bold text-3xl'>Crypto
-                <span className='text-cyan-500'>Mania</span>
-            </Link>
+        <div className='capitalize relative flex flex-row justify-between gap-10 px-5 py-3 place-items-center'>
+            <div className="flex gap-2">
+                <Link to={'/'}
+                    className='text-yellow-500 font-bold text-3xl'>Crypto
+                    <span className='text-cyan-500'>Mania</span>
+                </Link>
+                <p className="font-bold text-md text-yellow-500">{currency}</p>
+            </div>
+
 
             <div className="hidden lg:flex flex-row gap-5 text-lg">
                 {
@@ -36,25 +47,26 @@ const Navbar = () => {
                         items.title
                     }</Link>
                 ))
-                } </div>
+            } </div>
             {
-                navState==false ? <GiHamburgerMenu className='lg:hidden w-8 h-8 cursor-pointer'
+            navState == false ? <GiHamburgerMenu className='lg:hidden w-8 h-8 cursor-pointer'
                 onClick={
                     () => {
                         setNavState(!navState)
                         console.log(navState)
                     }
-                } /> : <AiOutlineClose className='lg:hidden w-8 h-8 cursor-pointer'
-                    onClick={
-                        () => {
-                            setNavState(!navState)
-                            console.log(navState)
-                        }} />
-            }
+                }/> : <AiOutlineClose className='lg:hidden w-8 h-8 cursor-pointer'
+                onClick={
+                    () => {
+                        setNavState(!navState)
+                        console.log(navState)
+                    }
+                }/>
+        }
             {
             navState && (
                 <div className={
-                    navState ? " absolute top-9 right-8 flex flex-col gap-5 text-lg" : ""
+                    navState ? "bg-white z-10 w-[400px] absolute top-12 text-black right-8 text-center flex flex-col gap-5 text-lg" : ""
                 }>
                     {
                     navitem.map((items) => (
